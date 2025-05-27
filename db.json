@@ -1,0 +1,138 @@
+{
+  "Restaurant": [
+    {
+      "id": 1,
+      "name": "Johnny's Burgers",
+      "category": "Burgers",
+      "rating": 4.8,
+      "deliveryTime": 35,
+      "image": "src//assets//Johnnys Burgers.png",
+      "menu": {
+        "starters": [
+          {
+            "id": 1,
+            "name": "Fries",
+            "price": 39,
+            "description": "Crispy french fries with a hint of salt.",
+            "image": "src//assets//fries-1.png"
+          },
+          {
+            "id": 2,
+            "name": "Onion Rings",
+            "price": 49,
+            "description": "Beer-battered onion rings, crispy and golden.",
+            "image": "src//assets//OnionRings.png"
+          },
+          {
+            "id": 3,
+            "name": "Sweet Potato Fries",
+            "price": 49,
+            "description": "Sweet potato fries with salt.",
+            "image": "src//assets//sweetPotatoFries-2.png"
+          }
+        ],
+        "main": [
+          {
+            "id": 1,
+            "name": "Johnny's Special Burger",
+            "price": 139,
+            "description": "A juicy beef patty with lettuce, tomato, and special Johnny sauce.",
+            "image": "src//assets//burger-9.png"
+          },
+          {
+            "id": 2,
+            "name": "Johnny's Cheeseburger",
+            "price": 119,
+            "description": "A classic cheeseburger with melted cheese, lettuce, and tomato.",
+            "image": "src//assets//burger-5.png"
+          },
+          {
+            "id": 3,
+            "name": "Johnny's Crazy Charred Burger",
+            "price": 159,
+            "description": "A charred beef patty and bun with spicy sauce, lettuce, and tomato. Absolutely crazy!",
+            "image": "src//assets//burger-8.png"
+          }
+        ],
+        "dessert": [
+          {
+            "id": 1,
+            "name": "Johnny's brownie",
+            "price": 69,
+            "description": "A rich chocolate brownie with a scoop of vanilla ice cream.",
+            "image": "src//assets//JohnnysBrownie.png"
+          }
+        ],
+        "drinks": [
+          {
+            "id": 1,
+            "name": "Johnny's Dude Beer Man",
+            "price": 69,
+            "description": "A refreshing beer with a hint of citrus.",
+            "image": "src//assets//Johnnys Beer.png"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Kamakazi Ramen",
+      "category": "Asian",
+      "rating": 4.5,
+      "deliveryTime": 20,
+      "image": "src//assets//KamakaziRamen//KamakaziRamenLogo.png",
+      "menu": {
+        "starters": [
+          {
+            "id": 1,
+            "name": "Edamame",
+            "price": 39,
+            "description": "Steamed edamame with sea salt.",
+            "image": "src//assets//KamakaziRamen//edamame.png"
+          },
+          {
+            "id": 2,
+            "name": "Gyoza",
+            "price": 49,
+            "description": "Pan-fried dumplings filled with pork and vegetables.",
+            "image": "src//assets//KamakaziRamen//gyoza.png"
+          }
+        ],
+        "main": [
+          {
+            "id": 1,
+            "name": "Tonkotsu Ramen",
+            "price": 139,
+            "description": "Rich pork bone broth with ramen noodles, chashu, and soft-boiled egg.",
+            "image": "src//assets//KamakaziRamen//tonkotsu.png"
+          },
+          {
+            "id": 2,
+            "name": "Spicy Miso Ramen",
+            "price": 119,
+            "description": "Spicy miso broth with ramen noodles, ground pork, and green onions.",
+            "image": "src//assets//KamakaziRamen//spicyMiso.png"
+          }
+        ],
+        "dessert": [
+          {
+            "id": 1,
+            "name": "Mochi Ice Cream",
+            "price": 69,
+            "description": "Sweet rice cake filled with ice cream.",
+            "image": ""
+          }
+        ],
+        "drinks": [
+          {
+            "id": 1,
+            "name": "Kamakazi Sake",
+            "price": 89,
+            "description": "Japanese rice wine.",
+            "image": ""
+          }
+        ]
+      }
+    }
+  ]
+}
