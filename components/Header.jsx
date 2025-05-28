@@ -1,7 +1,12 @@
 import React from "react";
 import CuisineFilter from "./CuisineFilter";
 
-function Header() {
+function Header({
+  currentUser,
+  onProfileClick,
+  onFavoritesClick,
+  onCartClick,
+}) {
   return (
     <>
       <nav>
@@ -19,19 +24,25 @@ function Header() {
           <h2>Gatangatan 123 Malmö 222 22</h2>
           <h1>Drone Delights</h1>
           <img
-            src="src\assets\avatar.png"
+            src="src/assets/avatar.png"
             alt="Account"
             className="symbol account"
+            onClick={onProfileClick}
+            style={{ cursor: "pointer" }}
           />
           <img
-            src="src\assets\heart.png"
+            src="src/assets/heart.png"
             alt="Favorites"
             className="symbol favorites"
+            onClick={onFavoritesClick}
+            style={{ cursor: "pointer" }}
           />
           <img
-            src="src\assets\shopping-cart.png"
+            src="src/assets/shopping-cart.png"
             alt="Checkout"
             className="symbol checkout"
+            onClick={onCartClick}
+            style={{ cursor: "pointer" }}
           />
         </div>
 

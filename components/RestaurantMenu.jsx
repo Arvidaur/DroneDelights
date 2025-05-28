@@ -10,7 +10,7 @@ const categoryNames = {
 
 const categories = ["starters", "main", "dessert", "drinks"];
 
-function RestaurantMenu() {
+function RestaurantMenu({ addToCart }) {
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState(null);
 
@@ -49,7 +49,7 @@ function RestaurantMenu() {
                     <br />
                     {dish.description}
                     <br />
-                    <button onClick={() => addToCart(dish.id)}>
+                    <button onClick={() => addToCart(dish)}>
                       Lägg till i varukorg
                     </button>
                   </div>
