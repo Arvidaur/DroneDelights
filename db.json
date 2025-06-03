@@ -6,7 +6,7 @@
       "category": "Burgers",
       "rating": 4.8,
       "deliveryTime": 35,
-      "image": "src//assets//Johnnys Burgers.png",
+      "image": "/assets/JohnnysBurgers/Johnnys Burgers.png",
       "menu": {
         "starters": [
           {
@@ -14,15 +14,15 @@
             "name": "Fries",
             "price": 39,
             "description": "Crispy french fries with a hint of salt.",
-            "image": "src//assets//fries-1.png",
-            "timesOrdered": 0
+            "image": "/assets/JohnnysBurgers/fries-1.png",
+            "timesOrdered": 6
           },
           {
             "id": 2,
             "name": "Onion Rings",
             "price": 49,
             "description": "Beer-battered onion rings, crispy and golden.",
-            "image": "src//assets//OnionRings.png",
+            "image": "/assets/JohnnysBurgers/OnionRings.png",
             "timesOrdered": 0
           },
           {
@@ -30,7 +30,7 @@
             "name": "Sweet Potato Fries",
             "price": 49,
             "description": "Sweet potato fries with salt.",
-            "image": "src//assets//sweetPotatoFries-2.png",
+            "image": "/assets/JohnnysBurgers/sweetPotatoFries-2.png",
             "timesOrdered": 0
           }
         ],
@@ -40,15 +40,15 @@
             "name": "Johnny's Special Burger",
             "price": 139,
             "description": "A juicy beef patty with lettuce, tomato, and special Johnny sauce.",
-            "image": "src//assets//burger-9.png",
-            "timesOrdered": 0
+            "image": "/assets/JohnnysBurgers/burger-9.png",
+            "timesOrdered": 3
           },
           {
             "id": 2,
             "name": "Johnny's Cheeseburger",
             "price": 119,
             "description": "A classic cheeseburger with melted cheese, lettuce, and tomato.",
-            "image": "src//assets//burger-5.png",
+            "image": "/assets/JohnnysBurgers/burger-5.png",
             "timesOrdered": 0
           },
           {
@@ -56,7 +56,7 @@
             "name": "Johnny's Crazy Charred Burger",
             "price": 159,
             "description": "A charred beef patty and bun with spicy sauce, lettuce, and tomato. Absolutely crazy!",
-            "image": "src//assets//burger-8.png",
+            "image": "/assets/JohnnysBurgers/burger-2.png",
             "timesOrdered": 0
           }
         ],
@@ -66,8 +66,8 @@
             "name": "Johnny's brownie",
             "price": 69,
             "description": "A rich chocolate brownie with a scoop of vanilla ice cream.",
-            "image": "src//assets//JohnnysBrownie.png",
-            "timesOrdered": 0
+            "image": "/assets/JohnnysBurgers/JohnnysBrownie.png",
+            "timesOrdered": 5
           }
         ],
         "drinks": [
@@ -76,8 +76,8 @@
             "name": "Johnny's Dude Beer Man",
             "price": 69,
             "description": "A refreshing beer with a hint of citrus.",
-            "image": "src//assets//Johnnys Beer.png",
-            "timesOrdered": 0
+            "image": "/assets/JohnnysBurgers/Johnny's Beer.png",
+            "timesOrdered": 4
           }
         ]
       }
@@ -88,7 +88,7 @@
       "category": "Asian",
       "rating": 4.5,
       "deliveryTime": 20,
-      "image": "src//assets//KamakaziRamen//KamakaziRamenLogo.png",
+      "image": "/assets/KamakaziRamen/KamakaziRamenLogo.png",
       "menu": {
         "starters": [
           {
@@ -96,7 +96,7 @@
             "name": "Edamame",
             "price": 39,
             "description": "Steamed edamame with sea salt.",
-            "image": "src//assets//KamakaziRamen//edamame.png",
+            "image": "/assets/KamakaziRamen/Edamame.png",
             "timesOrdered": 0
           },
           {
@@ -104,7 +104,7 @@
             "name": "Gyoza",
             "price": 49,
             "description": "Pan-fried dumplings filled with pork and vegetables.",
-            "image": "src//assets//KamakaziRamen//gyoza.png",
+            "image": "/assets/KamakaziRamen/Gyoza.png",
             "timesOrdered": 0
           }
         ],
@@ -114,15 +114,15 @@
             "name": "Tonkotsu Ramen",
             "price": 139,
             "description": "Rich pork bone broth with ramen noodles, chashu, and soft-boiled egg.",
-            "image": "src//assets//KamakaziRamen//tonkotsu.png",
-            "timesOrdered": 0
+            "image": "/assets/KamakaziRamen/tonkotsu.png",
+            "timesOrdered": 1
           },
           {
             "id": 2,
             "name": "Spicy Miso Ramen",
             "price": 119,
             "description": "Spicy miso broth with ramen noodles, ground pork, and green onions.",
-            "image": "src//assets//KamakaziRamen//spicyMiso.png",
+            "image": "/assets/KamakaziRamen/spicyMiso.png",
             "timesOrdered": 0
           }
         ],
@@ -132,7 +132,7 @@
             "name": "Mochi Ice Cream",
             "price": 69,
             "description": "Sweet rice cake filled with ice cream.",
-            "image": "",
+            "image": "/assets/KamakaziRamen/Mochi.png",
             "timesOrdered": 0
           }
         ],
@@ -142,7 +142,237 @@
             "name": "Kamakazi Sake",
             "price": 89,
             "description": "Japanese rice wine.",
-            "image": "",
+            "image": "/assets/KamakaziRamen/Sake.png",
+            "timesOrdered": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "name": "Pizzeria Lupo Rosso",
+      "category": "Pizza",
+      "rating": 2.7,
+      "deliveryTime": 35,
+      "image": "/assets/LupoRosso/LupoRossoLogo.png",
+      "menu": {
+        "starters": [
+          {
+            "id": 1,
+            "name": "Rosemary Focaccia",
+            "price": 49,
+            "description": "Warm, fluffy focaccia topped with rosemary, sea salt, and served with cold-pressed olive oil.",
+            "image": "/assets/LupoRosso/Focaccia.png",
+            "timesOrdered": 0
+          },
+          {
+            "id": 2,
+            "name": "Burrata & Cherry Tomatoes",
+            "price": 69,
+            "description": "Creamy burrata on a bed of marinated cherry tomatoes, fresh basil, and a drizzle of balsamic glaze.",
+            "image": "/assets/LupoRosso/Burrata.png",
+            "timesOrdered": 0
+          }
+        ],
+        "main": [
+          {
+            "id": 1,
+            "name": "Diavola Nera Pizza",
+            "price": 139,
+            "description": "Tomato base, fior di latte, spicy 'nduja sausage, black garlic, and fresh chili.",
+            "image": "/assets/LupoRosso/DiavolaNera.png",
+            "timesOrdered": 0
+          },
+          {
+            "id": 2,
+            "name": "Bosco Bianco Pizza",
+            "price": 145,
+            "description": "White base with truffle oil, a mix of wild mushrooms, taleggio cheese, and caramelized onions.",
+            "image": "/assets/LupoRosso/BoscoBianco.png",
+            "timesOrdered": 0
+          }
+        ],
+        "dessert": [
+          {
+            "id": 1,
+            "name": "House Tiramisù",
+            "price": 79,
+            "description": "Classic tiramisù with a twist — soaked in limoncello instead of rum.",
+            "image": "/assets/LupoRosso/Tiramisu.png",
+            "timesOrdered": 0
+          }
+        ],
+        "drinks": [
+          {
+            "id": 1,
+            "name": "Rosso Spritz",
+            "price": 95,
+            "description": "A blood orange apéritif with prosecco and soda, bitter-sweet and refreshing.",
+            "image": "/assets/LupoRosso/RossoSpritz.png",
+            "timesOrdered": 0
+          },
+          {
+            "id": 2,
+            "name": "Lupo’s Lemonata",
+            "price": 45,
+            "description": "House-made lemon soda with mint and a kick of ginger. Available with gin.",
+            "image": "/assets/LupoRosso/Lemonata.png",
+            "timesOrdered": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "name": "Vera Verde",
+      "category": "Salads",
+      "rating": 4.6,
+      "deliveryTime": 40,
+      "image": "/assets/VeraVerde/VeraVerdeLogo.png",
+      "menu": {
+        "starters": [
+          {
+            "id": 1,
+            "name": "Edamame with Sea Salt",
+            "price": 39,
+            "description": "Warm edamame pods sprinkled with flaky sea salt and a hint of sesame oil.",
+            "image": "/assets/VeraVerde/Edamame.png",
+            "timesOrdered": 0
+          },
+          {
+            "id": 2,
+            "name": "Mini Avocado Toasts",
+            "price": 59,
+            "description": "Bite-sized sourdough toasts with smashed avocado, chili flakes and microgreens.",
+            "image": "/assets/VeraVerde/AvocadoToasts.png",
+            "timesOrdered": 0
+          }
+        ],
+        "main": [
+          {
+            "id": 1,
+            "name": "Super Green Bowl",
+            "price": 129,
+            "description": "Kale, quinoa, edamame, avocado, cucumber, pumpkin seeds and herby green dressing.",
+            "image": "/assets/VeraVerde/SuperGreenBowl.png",
+            "timesOrdered": 0
+          },
+          {
+            "id": 2,
+            "name": "Mediterranean Chickpea Salad",
+            "price": 119,
+            "description": "Chickpeas, cherry tomatoes, cucumber, red onion, olives, vegan feta and lemon-oregano vinaigrette.",
+            "image": "/assets/VeraVerde/ChickpeaSalad.png",
+            "timesOrdered": 0
+          },
+          {
+            "id": 3,
+            "name": "Roasted Veggie & Farro",
+            "price": 125,
+            "description": "Warm farro tossed with roasted carrots, zucchini, bell pepper and a tahini-maple dressing.",
+            "image": "/assets/VeraVerde/RoastedVegFarro.png",
+            "timesOrdered": 0
+          }
+        ],
+        "dessert": [
+          {
+            "id": 1,
+            "name": "Chia Coconut Pudding",
+            "price": 69,
+            "description": "Creamy coconut milk pudding with chia seeds, mango purée and toasted coconut flakes.",
+            "image": "/assets/VeraVerde/ChiaPudding.png",
+            "timesOrdered": 0
+          }
+        ],
+        "drinks": [
+          {
+            "id": 1,
+            "name": "Green Glow Juice",
+            "price": 55,
+            "description": "Cold-pressed juice with kale, green apple, cucumber, mint and lemon.",
+            "image": "/assets/VeraVerde/GreenGlowJuice.png",
+            "timesOrdered": 0
+          },
+          {
+            "id": 2,
+            "name": "Ginger & Hibiscus Iced Tea",
+            "price": 45,
+            "description": "House-brewed hibiscus tea with fresh ginger and a splash of agave.",
+            "image": "/assets/VeraVerde/HibiscusTea.png",
+            "timesOrdered": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "5",
+      "name": "Lilla Kaffestugan",
+      "category": "Fika",
+      "rating": 1.2,
+      "deliveryTime": 65,
+      "image": "/assets/LillaKaffestugan/Logo.png",
+      "menu": {
+        "starters": [
+          {
+            "id": 1,
+            "name": "Cardamom Buns",
+            "price": 39,
+            "description": "Freshly baked Swedish cardamom buns with a soft, buttery texture and aromatic cardamom spice.",
+            "image": "/assets/LillaKaffestugan/CardamomBuns.png",
+            "timesOrdered": 0
+          }
+        ],
+        "main": [
+          {
+            "id": 1,
+            "name": "Open-faced Salmon Sandwich",
+            "price": 99,
+            "description": "Rye bread topped with fresh smoked salmon, dill, cucumber slices and lemon crème fraîche.",
+            "image": "/assets/LillaKaffestugan/SalmonSandwich.png",
+            "timesOrdered": 0
+          }
+        ],
+        "dessert": [
+          {
+            "id": 1,
+            "name": "Classic Swedish Princess Cake",
+            "price": 79,
+            "description": "Layers of sponge cake, whipped cream, raspberry jam and marzipan, beautifully decorated.",
+            "image": "/assets/LillaKaffestugan/PrincessCake.png",
+            "timesOrdered": 0
+          },
+          {
+            "id": 2,
+            "name": "Chocolate Hazelnut Tart",
+            "price": 75,
+            "description": "Rich chocolate tart with a crunchy hazelnut crust and a dollop of whipped cream.",
+            "image": "/assets/LillaKaffestugan/ChocolateTart.png",
+            "timesOrdered": 0
+          }
+        ],
+        "drinks": [
+          {
+            "id": 1,
+            "name": "Classic Filter Coffee",
+            "price": 35,
+            "description": "Freshly brewed filter coffee, served hot and aromatic.",
+            "image": "/assets/LillaKaffestugan/FilterCoffee.png",
+            "timesOrdered": 0
+          },
+          {
+            "id": 2,
+            "name": "Chai Latte",
+            "price": 45,
+            "description": "Spiced chai tea with steamed milk, topped with a sprinkle of cinnamon.",
+            "image": "/assets/LillaKaffestugan/ChaiLatte.png",
+            "timesOrdered": 0
+          },
+          {
+            "id": 3,
+            "name": "Elderflower Lemonade",
+            "price": 40,
+            "description": "Refreshing homemade lemonade with elderflower syrup and fresh lemon slices.",
+            "image": "/assets/LillaKaffestugan/ElderflowerLemonade.png",
             "timesOrdered": 0
           }
         ]
@@ -158,7 +388,8 @@
       "name": "Test Testsson",
       "favorite": [
         {
-          "restaurantId": 1,
+          "restaurantId": "1",
+          "category": "starters",
           "itemId": 1
         }
       ]
@@ -169,7 +400,68 @@
       "password": "arvid123",
       "name": "Arvid Rönnkvist ",
       "email": "arvid@gmail.com",
-      "favorite": []
+      "favorite": [
+        {
+          "restaurantId": "2",
+          "category": "starters",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "2",
+          "category": "main",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "2",
+          "category": "dessert",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "2",
+          "category": "drinks",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "1",
+          "category": "drinks",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "1",
+          "category": "dessert",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "1",
+          "category": "main",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "1",
+          "category": "starters",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "1",
+          "category": "starters",
+          "itemId": 2
+        },
+        {
+          "restaurantId": "1",
+          "category": "main",
+          "itemId": 2
+        },
+        {
+          "restaurantId": "2",
+          "category": "starters",
+          "itemId": 2
+        },
+        {
+          "restaurantId": "1",
+          "category": "main",
+          "itemId": 3
+        }
+      ]
     }
   ],
   "orders": [
@@ -234,6 +526,447 @@
       "totalPrice": 138,
       "deliveryAddress": "asd",
       "paymentMethod": "kort"
+    },
+    {
+      "id": "d8cb",
+      "userId": 1,
+      "restaurantId": 1,
+      "items": [
+        {
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 139,
+      "deliveryAddress": "GatanGatan 123",
+      "paymentMethod": "swish"
+    },
+    {
+      "id": "06c5",
+      "userId": 1,
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 316,
+      "deliveryAddress": "Gatan 123",
+      "paymentMethod": "kort"
+    },
+    {
+      "id": "3609",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 336,
+      "deliveryAddress": "gata 2",
+      "paymentMethod": "kort"
+    },
+    {
+      "id": "e1f8",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 316,
+      "deliveryAddress": "Gatan 1 ",
+      "paymentMethod": "swish"
+    },
+    {
+      "id": "9442",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 139,
+      "deliveryAddress": "gata",
+      "paymentMethod": "kort"
+    },
+    {
+      "id": "7450",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 178,
+      "deliveryAddress": "gata",
+      "paymentMethod": "kort"
+    },
+    {
+      "id": "f295",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 139,
+      "deliveryAddress": "gata",
+      "paymentMethod": "kort"
+    },
+    {
+      "id": "cf8e",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 2,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 257,
+      "deliveryAddress": "Gatan",
+      "paymentMethod": "swish",
+      "date": "2025-06-01T08:35:25.804Z"
+    },
+    {
+      "id": "c79e",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 2,
+          "quantity": 1
+        },
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 227,
+      "deliveryAddress": "gggg",
+      "paymentMethod": "kort",
+      "date": "2025-06-01T10:09:14.706Z"
+    },
+    {
+      "id": "0337",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 178,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-01T10:33:34.372Z"
+    },
+    {
+      "id": "17d6",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 2,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 346,
+      "deliveryAddress": "Gatan 2 ",
+      "paymentMethod": "swish",
+      "date": "2025-06-01T10:38:17.670Z"
+    },
+    {
+      "id": "d32a",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "main",
+          "itemId": 2,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 119,
+      "deliveryAddress": "kj",
+      "paymentMethod": "kort",
+      "date": "2025-06-01T10:42:16.886Z"
+    },
+    {
+      "id": "7792",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 2,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 188,
+      "deliveryAddress": "gata",
+      "paymentMethod": "kort",
+      "date": "2025-06-01T10:50:21.535Z"
+    },
+    {
+      "id": "8e2b",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 316,
+      "deliveryAddress": "dasd",
+      "paymentMethod": "kort",
+      "date": "2025-06-01T12:51:45.410Z"
+    },
+    {
+      "id": "a254",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 139,
+      "deliveryAddress": "Gatan 2 ",
+      "paymentMethod": "swish",
+      "date": "2025-06-01T15:44:39.728Z"
+    },
+    {
+      "id": "f1bf",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "starters",
+          "itemId": 2,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 3,
+          "quantity": 1
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 2
+        }
+      ],
+      "totalPrice": 593,
+      "deliveryAddress": "Gatan 2",
+      "paymentMethod": "swish",
+      "date": "2025-06-01T18:20:43.252Z"
+    },
+    {
+      "id": "24e6",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 2
+        },
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 2
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 5
+        }
+      ],
+      "totalPrice": 761,
+      "deliveryAddress": "gata",
+      "paymentMethod": "kort",
+      "date": "2025-06-01T18:26:31.053Z"
+    },
+    {
+      "id": "6873",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 139,
+      "deliveryAddress": "d",
+      "paymentMethod": "kort",
+      "date": "2025-06-01T18:27:25.648Z"
+    },
+    {
+      "id": "0997",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 6
+        }
+      ],
+      "totalPrice": 234,
+      "deliveryAddress": "gata",
+      "paymentMethod": "kort",
+      "date": "2025-06-02T07:57:49.913Z"
     }
   ]
 }

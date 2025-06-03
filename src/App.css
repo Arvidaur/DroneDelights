@@ -1,23 +1,71 @@
+/* =========================
+   Root Variables
+   ========================= */
+:root {
+  --nav-color: #0a1a2f;
+  --imperialRed-color: #f71735;
+  --orangePeel-color: #ff9f1c;
+  --celestialBlue-color: #008dd5;
+  --babyPowder-color: #fdfffc;
+}
+
+/* =========================
+   Base Styles
+   ========================= */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+li,
+a,
+button,
+input,
+select,
+textarea {
+  color: var(--nav-color);
+}
+
+body {
+  background: var(--babyPowder-color);
+}
+
+/* =========================
+   Logo & Symbol Styles
+   ========================= */
 .logo-main {
   width: 300px;
   height: auto;
 }
 
+/* General icon style */
 .symbol {
   width: 50px;
   height: auto;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(41%) saturate(747%)
+    hue-rotate(178deg) brightness(97%) contrast(97%);
 }
 
-/* Location Logo before the adress field */
+/* Location icon before address field */
 .location {
   width: 25px;
   height: auto;
 }
 
+/* =========================
+   Cuisine Filter Logos
+   ========================= */
 .filterLogo {
   height: 50px;
   width: auto;
-  margin: 0 40px;
+  margin: 0 auto;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(41%) saturate(747%)
+    hue-rotate(178deg) brightness(97%) contrast(97%);
 }
 
 .filterLogo:hover {
@@ -27,12 +75,29 @@
   transition: all 0.3s ease-in-out;
 }
 
+/* =========================
+   Typography
+   ========================= */
 h1 {
   font-size: 3rem;
   margin: 0;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
+.h1-main {
+  font-family: "Bebas Neue", "Impact", "Oswald", Arial, sans-serif;
+  font-size: 4rem;
+  letter-spacing: 0.08em;
+  color: var(--nav-color);
+  text-shadow: 2px 2px 8px #0a1a2f33, 0 2px 0 var(--babyPowder-color);
+  margin: 0 0 0 24px;
+  line-height: 1.1;
+  transition: color 0.3s;
+}
+
+/* =========================
+   Navigation Layout
+   ========================= */
 .top {
   display: flex;
   justify-content: space-between;
@@ -42,14 +107,52 @@ h1 {
 nav {
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, #ff9f1c, #f71735);
+  background: linear-gradient(
+    to right,
+    var(--orangePeel-color),
+    var(--imperialRed-color)
+  );
+  width: 100vw;
+  min-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-radius: 0;
+  box-sizing: border-box;
 }
 
-/* restaurant-card */
+.nav.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 0 0 0;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-top: 0;
+}
+
+/* =========================
+   Restaurant Card Grid & Card
+   ========================= */
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 .restaurant {
   width: 350px;
   min-height: 200px;
-  background: #fff;
+  background: var(--babyPowder-color);
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
@@ -68,22 +171,172 @@ nav {
   object-fit: cover;
 }
 
-.restaurant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
+/* =========================
+   Cart & Modal Styles
+   ========================= */
 .Cart {
   position: fixed;
   right: 0;
   top: 80px;
   width: 300px;
-  background: #fff;
+  background: var(--babyPowder-color);
   border-left: 1px solid #eee;
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
   padding: 16px;
   z-index: 100;
   height: calc(100% - 80px);
   overflow-y: auto;
+}
+
+.thank-you-modal {
+  max-width: 600px;
+  margin: 40px auto;
+  background: var(--babyPowder-color);
+  border: 2px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  z-index: 10;
+  text-align: center;
+}
+
+/* =========================
+   Interactive Symbols
+   ========================= */
+.symbol-interactive:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* =========================
+   Dish List & Card
+   ========================= */
+.dish-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 32px;
+}
+
+.dish-card {
+  background: var(--babyPowder-color);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  min-height: 180px;
+}
+
+.dish-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-right: 2rem;
+}
+
+/* Larger images and cards on wide screens */
+@media (min-width: 900px) {
+  .dish-card {
+    min-height: 240px;
+    padding: 32px;
+  }
+  .dish-card img {
+    width: 180px;
+    height: 180px;
+    margin-right: 3rem;
+  }
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer {
+  background: linear-gradient(
+    to right,
+    var(--orangePeel-color),
+    var(--imperialRed-color)
+  );
+  color: var(--nav-color);
+  text-align: center;
+  padding: 24px 0 12px 0;
+  margin-top: 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  width: 100vw;
+  min-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   Filter & Sort Buttons
+   ========================= */
+.filter-button {
+  background: linear-gradient(
+    to right,
+    var(--celestialBlue-color),
+    var(--imperialRed-color)
+  );
+  color: var(--nav-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.filter-button:hover {
+  background: linear-gradient(
+    to right,
+    var(--imperialRed-color),
+    var(--celestialBlue-color)
+  );
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Group for filter buttons */
+.filter-button-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+/* Row for filter logos and sort buttons */
+.filter-sort-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin: 32px auto 24px auto;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+/* Cuisine filter icon group */
+.cuisine-filter-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* =========================
+   Responsive Adjustments
+   ========================= */
+@media (max-width: 600px) {
+  .filter-sort-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
 }

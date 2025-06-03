@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Login({ setCurrentUser, goToRegister }) {
+function Login({ setCurrentUser, goToRegister, onClose }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,7 +22,32 @@ function Login({ setCurrentUser, goToRegister }) {
   };
 
   return (
-    <form onSubmit={handleLogin} style={{ maxWidth: 300, margin: "2rem auto" }}>
+    <form
+      onSubmit={handleLogin}
+      style={{
+        maxWidth: 300,
+        margin: "2rem auto",
+        position: "relative",
+      }}
+    >
+      {onClose && (
+        <button
+          type="button"
+          style={{
+            position: "absolute",
+            top: 8,
+            right: 8,
+            background: "none",
+            border: "none",
+            fontSize: "1.5rem",
+            cursor: "pointer",
+          }}
+          onClick={onClose}
+          aria-label="Stäng login"
+        >
+          &minus;
+        </button>
+      )}
       <h2>Logga in</h2>
       <input
         type="text"

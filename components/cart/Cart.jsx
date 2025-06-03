@@ -1,24 +1,30 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Cart({ cartItems, setCartItems, setOrderInfo }) {
+function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
   const navigate = useNavigate();
 
-  const increase = (id) => {
+  const increase = (id, category) => {
     setCartItems((prev) =>
       prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === id && item.category === category
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
       )
     );
   };
 
-  const decreaseOrRemove = (id, quantity) => {
+  const decreaseOrRemove = (id, category, quantity) => {
     if (quantity === 1) {
-      setCartItems((prev) => prev.filter((item) => item.id !== id));
+      setCartItems((prev) =>
+        prev.filter((item) => !(item.id === id && item.category === category))
+      );
     } else {
       setCartItems((prev) =>
         prev.map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+          item.id === id && item.category === category
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
         )
       );
     }
@@ -43,15 +49,36 @@ function Cart({ cartItems, setCartItems, setOrderInfo }) {
 
   return (
     <aside className="Cart">
+      <button
+        style={{
+          position: "absolute",
+          top: 8,
+          right: 8,
+          background: "none",
+          border: "none",
+          fontSize: "1.5rem",
+          cursor: "pointer",
+        }}
+        onClick={() => setShowCart(false)}
+        aria-label="Minimera kundvagn"
+      >
+        &minus;
+      </button>
       <h3>Kundvagn</h3>
       <ul>
         {cartItems.length === 0 ? (
           <li>Din varukorg är tom</li>
         ) : (
           cartItems.map((item) => (
-            <li key={item.id}>
+            <li key={item.id + "-" + item.category}>
               <img
-                src={item.image}
+                src={
+                  item.image
+                    ? item.image
+                        .replace(/^src[\\/]+assets[\\/]+/, "/assets/")
+                        .replaceAll("\\", "/")
+                    : ""
+                }
                 alt={item.name}
                 style={{
                   width: "50px",
@@ -61,7 +88,12 @@ function Cart({ cartItems, setCartItems, setOrderInfo }) {
                   marginRight: "1rem",
                 }}
               />
-              <strong>{item.name}</strong>
+              <strong>
+                {item.name}{" "}
+                <span style={{ fontSize: "0.9em", color: "#888" }}>
+                  ({item.category})
+                </span>
+              </strong>
               <div
                 style={{
                   display: "inline-flex",
@@ -70,21 +102,24 @@ function Cart({ cartItems, setCartItems, setOrderInfo }) {
                 }}
               >
                 <button
-                  onClick={() => decreaseOrRemove(item.id, item.quantity)}
+                  onClick={() =>
+                    decreaseOrRemove(item.id, item.category, item.quantity)
+                  }
                   style={{ marginRight: "0.5rem" }}
                 >
                   {item.quantity === 1 ? "🗑️" : "-"}
                 </button>
                 <span>{item.quantity}</span>
                 <button
-                  onClick={() => increase(item.id)}
+                  onClick={() => increase(item.id, item.category)}
                   style={{ marginLeft: "0.5rem" }}
                 >
                   +
                 </button>
               </div>
               <span style={{ marginLeft: "1rem" }}>
-                {item.price * item.quantity} kr
+                {item.price && item.quantity ? item.price * item.quantity : 0}{" "}
+                kr
               </span>
             </li>
           ))

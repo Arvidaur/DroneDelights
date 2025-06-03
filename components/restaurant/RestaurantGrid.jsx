@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Restaurant from "./Restaurant";
 
-function RestaurantGrid() {
+function RestaurantGrid({ filter, sort = { field: "", order: "asc" } }) {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
@@ -10,9 +10,27 @@ function RestaurantGrid() {
       .then((data) => setRestaurants(data));
   }, []);
 
+  let filtered = filter
+    ? restaurants.filter(
+        (r) => r.category.toLowerCase() === filter.toLowerCase()
+      )
+    : restaurants;
+
+  if (sort.field === "deliveryTime") {
+    filtered = [...filtered].sort((a, b) =>
+      sort.order === "asc"
+        ? a.deliveryTime - b.deliveryTime
+        : b.deliveryTime - a.deliveryTime
+    );
+  } else if (sort.field === "rating") {
+    filtered = [...filtered].sort((a, b) =>
+      sort.order === "desc" ? b.rating - a.rating : a.rating - b.rating
+    );
+  }
+
   return (
     <div className="restaurant-grid">
-      {restaurants.map((restaurant) => (
+      {filtered.map((restaurant) => (
         <Restaurant
           key={restaurant.id}
           id={restaurant.id}
