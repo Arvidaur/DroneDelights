@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
+import Layout from "../components/layout/Layout";
 import RestaurantGrid from "../components/restaurant/RestaurantGrid";
 import RestaurantMenu from "../components/restaurant/RestaurantMenu";
 import Payment from "../components/cart/Payment";
@@ -53,48 +52,46 @@ function App() {
 
   const mostOrdered = useMostOrdered(orders, 5);
 
-  return (
-    <>
-      {location.pathname !== "/login" && location.pathname !== "/register" && (
-        <Header
-          currentUser={currentUser}
-          onProfileClick={() => {
-            if (!currentUser) {
-              setShowRegister(false);
-              setShowProfile(false);
-              setShowCart(false);
-              setShowFavorites(false);
-              setShowOrders(false);
-              setShowLogin(true);
-            } else {
-              setShowProfile(true);
-            }
-          }}
-          onFavoritesClick={() => {
-            if (!currentUser) {
-              setLoginPrompt(
-                "Du måste vara inloggad för att se dina favoriter."
-              );
-              return;
-            }
-            setShowFavorites(true);
-          }}
-          onCartClick={() => {
-            if (!currentUser) {
-              setLoginPrompt(
-                "Du måste vara inloggad för att använda kundvagnen."
-              );
-              return;
-            }
-            setShowCart((prev) => !prev);
-          }}
-          setFilter={setFilter}
-          filter={filter}
-          setSort={setSort}
-          sort={sort}
-        />
-      )}
+  const onProfileClick = () => {
+    if (!currentUser) {
+      setShowRegister(false);
+      setShowProfile(false);
+      setShowCart(false);
+      setShowFavorites(false);
+      setShowOrders(false);
+      setShowLogin(true);
+    } else {
+      setShowProfile(true);
+    }
+  };
 
+  const onFavoritesClick = () => {
+    if (!currentUser) {
+      setLoginPrompt("Du måste vara inloggad för att se dina favoriter.");
+      return;
+    }
+    setShowFavorites(true);
+  };
+
+  const onCartClick = () => {
+    if (!currentUser) {
+      setLoginPrompt("Du måste vara inloggad för att använda kundvagnen.");
+      return;
+    }
+    setShowCart((prev) => !prev);
+  };
+
+  return (
+    <Layout
+      currentUser={currentUser}
+      onProfileClick={onProfileClick}
+      onFavoritesClick={onFavoritesClick}
+      onCartClick={onCartClick}
+      setFilter={setFilter}
+      filter={filter}
+      setSort={setSort}
+      sort={sort}
+    >
       {/* Routing */}
       <Routes>
         <Route
@@ -227,27 +224,48 @@ function App() {
         <div
           style={{
             position: "fixed",
-            top: 100,
-            left: "50%",
-            transform: "translateX(-50%)",
-            background: "#fff3cd",
-            color: "#856404",
-            border: "1px solid #ffeeba",
-            borderRadius: 8,
-            padding: "16px 32px",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0,0,0,0.4)",
             zIndex: 9999,
-            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          {loginPrompt}
-          <button style={{ marginLeft: 16 }} onClick={() => setLoginPrompt("")}>
-            Stäng
-          </button>
+          <div
+            style={{
+              background: "#fff3cd",
+              color: "#856404",
+              border: "1px solid #ffeeba",
+              borderRadius: 12,
+              padding: "32px 48px",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.2)",
+              minWidth: 300,
+              textAlign: "center",
+            }}
+          >
+            <div style={{ fontSize: 18, marginBottom: 16 }}>{loginPrompt}</div>
+            <button
+              style={{
+                padding: "8px 24px",
+                borderRadius: 6,
+                border: "none",
+                background: "#ffeeba",
+                color: "#856404",
+                fontWeight: "bold",
+                cursor: "pointer",
+              }}
+              onClick={() => setLoginPrompt("")}
+            >
+              Stäng
+            </button>
+          </div>
         </div>
       )}
-
-      <Footer />
-    </>
+    </Layout>
   );
 }
 

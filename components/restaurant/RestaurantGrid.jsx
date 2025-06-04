@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Restaurant from "./Restaurant";
 
-function RestaurantGrid({ filter, sort = { field: "", order: "asc" } }) {
-  const [restaurants, setRestaurants] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/Restaurant")
-      .then((res) => res.json())
-      .then((data) => setRestaurants(data));
-  }, []);
-
+function RestaurantGrid({
+  filter,
+  sort = { field: "", order: "asc" },
+  restaurants = [],
+}) {
   let filtered = filter
     ? restaurants.filter(
         (r) => r.category.toLowerCase() === filter.toLowerCase()

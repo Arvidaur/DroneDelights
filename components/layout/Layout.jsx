@@ -1,10 +1,86 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 import RestaurantGrid from "../restaurant/RestaurantGrid";
+import CuisineFilter from "../filters/CuisineFilter.jsx";
+import FilterButton from "../filters/FilterButton";
 
-function Layout({ filter, sort }) {
+function Layout({
+  children,
+  currentUser,
+  onProfileClick,
+  onFavoritesClick,
+  onCartClick,
+  setFilter,
+  filter,
+  setSort,
+  sort,
+}) {
+  const location = useLocation();
+
+  // Visa bara på startsidan
+  const isHome = location.pathname === "/";
+
   return (
     <>
-      <RestaurantGrid filter={filter} sort={sort} />
+      <Header
+        currentUser={currentUser}
+        onProfileClick={onProfileClick}
+        onFavoritesClick={onFavoritesClick}
+        onCartClick={onCartClick}
+        setFilter={setFilter}
+        filter={filter}
+        setSort={setSort}
+        sort={sort}
+      />
+
+      {isHome && (
+        <>
+          <h1 className="h1-main">Våra restauranger</h1>
+          <CuisineFilter setFilter={setFilter} />
+          <div className="filter-sort-row" style={{ margin: "16px 0" }}>
+            <FilterButton
+              onClick={() =>
+                setSort((prev) =>
+                  prev.field === "deliveryTime" && prev.order === "asc"
+                    ? { field: "deliveryTime", order: "desc" }
+                    : { field: "deliveryTime", order: "asc" }
+                )
+              }
+              active={sort.field === "deliveryTime"}
+            >
+              {sort.field === "deliveryTime"
+                ? sort.order === "asc"
+                  ? "Snabbast Leveranstid"
+                  : "Långsamast Leveranstid"
+                : "Långsamast Leveranstid"}
+            </FilterButton>
+            <FilterButton
+              onClick={() =>
+                setSort((prev) =>
+                  prev.field === "rating" && prev.order === "desc"
+                    ? { field: "rating", order: "asc" }
+                    : { field: "rating", order: "desc" }
+                )
+              }
+              active={sort.field === "rating"}
+            >
+              {sort.field === "rating"
+                ? sort.order === "desc"
+                  ? "Bäst betyg"
+                  : "Sämst betyg"
+                : "Bäst betyg"}
+            </FilterButton>
+            <FilterButton onClick={() => setSort({ field: "", order: "asc" })}>
+              Nollställ sortering
+            </FilterButton>
+          </div>
+        </>
+      )}
+
+      <main>{children}</main>
+      <Footer />
     </>
   );
 }

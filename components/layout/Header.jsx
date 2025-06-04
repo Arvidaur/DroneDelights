@@ -1,17 +1,75 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import CuisineFilter from "../filters/CuisineFilter";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Header({
   currentUser,
   onProfileClick,
   onFavoritesClick,
   onCartClick,
-  setFilter,
-  setSort,
-  sort,
 }) {
   const navigate = useNavigate();
+  const location = useLocation(); // Lägg till denna rad
+
+  // Texts being displayed on the hero page
+  const heroTexts = [
+    'Levererar mat med stil – snabbare än du hinner säga "hungrig"!',
+    "Rekommenderas av 9 av 10 tandläkare!",
+    "Mat från molnen – levererad med neonprecision.",
+    "Drönare i neon. Smak i världsklass.",
+    "Från kocken till ditt kvarter på 3.2 nanosekunder.",
+    "Beställ. Blinka. Maten är där.",
+    "Cybermat. Retropris. Turbohastighet.",
+    "Mätt framtiden – en drönare i taget.",
+    "Din smak är vår kod.",
+    "När magen kurrar, surrar vi.",
+    "Framtiden har landat – och den har sushi.",
+    "Alltid varmt. Alltid snabbt. Alltid coolt.",
+    "Vi levererar till varje neonupplyst gränd.",
+    "Hacka hungern. Beställ nu.",
+    "Neonsmak direkt till din dörr – inga frågor ställda.",
+    "Byggd för smaken. Kodad för leverans.",
+    "Din cybermåltid är bara ett klick bort.",
+    "Laddar tacos... ✔️ Teleporterar smak... ✔️",
+    "Äkta streetfood – från framtidens gator.",
+    "Vi flyger – så du slipper gå.",
+    "När natten är mörk, är vi neon.",
+    "Brusande kablar. Fräsande nudlar. Perfekt leverans.",
+    "Matleverans med överklockad smak.",
+    "Drönare med smakuppdrag – inga kompromisser.",
+    "Smaken av 2099, serverad nu.",
+    "Made in Neon Malmö 2025",
+    "Initierar vitlöksbröd...",
+    "Releasing Drones... Please Stand by...",
+    "Laddar aranchinibollar...",
+  ];
+
+  const [currentText, setCurrentText] = useState(() =>
+    Math.floor(Math.random() * heroTexts.length)
+  );
+  const [fade, setFade] = useState(true);
+  const [textPosition, setTextPosition] = useState({ top: "40%", left: "50%" });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false); // Starta fade ut
+      setTimeout(() => {
+        setCurrentText((prev) => {
+          let next;
+          do {
+            next = Math.floor(Math.random() * heroTexts.length);
+          } while (next === prev && heroTexts.length > 1);
+          return next;
+        });
+        // Lägg till denna rad för att slumpa positionen!
+        setTextPosition({
+          top: `${30 + Math.random() * 40}%`, // 30% till 70% av höjden
+          left: `${20 + Math.random() * 60}%`, // 20% till 80% av bredden
+        });
+        setFade(true); // Fade in nästa text
+      }, 400); // Matcha med fade-out-tiden i CSS
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -50,67 +108,47 @@ function Header({
           </div>
         </div>
 
-        {/* Removed searchfunction */}
-        {/* <div className="nav middle">
-          <form action="submit">
-            <input
-              type="text"
-              placeholder="Search Drone Delights for food, drinks, etc."
-              className="search-bar"
-            />
-            <button type="submit" className="search-button">
-              <img
-                src="src\assets\search.png"
-                alt="Search"
-                className="symbol search"
-              />
-            </button>
-          </form>
-        </div> */}
-
-        <div className="nav bottom">
-          <CuisineFilter setFilter={setFilter} />
-          <div className="filter-sort-row">
-            <button
-              className="filter-button"
-              onClick={() =>
-                setSort((prev) =>
-                  prev.field === "deliveryTime" && prev.order === "asc"
-                    ? { field: "deliveryTime", order: "desc" }
-                    : { field: "deliveryTime", order: "asc" }
-                )
-              }
+        {/* Visa hero BARA på startsidan */}
+        {location.pathname === "/" && (
+          <div
+            className="hero"
+            style={{
+              width: "100%",
+              height: "400px",
+              backgroundImage: "url('/assets/DroneDelightsHeroImage3.png')",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: 24,
+              position: "relative",
+            }}
+          >
+            <h2
+              className={`hero-info ${fade ? "fade-in" : "fade-out"}`}
+              style={{
+                top: textPosition.top,
+                left: textPosition.left,
+              }}
             >
-              {sort.field === "deliveryTime"
-                ? sort.order === "asc"
-                  ? "Snabbast Leveranstid"
-                  : "Långsamast Leveranstid"
-                : "Långsamast Leveranstid"}
-            </button>
-            <button
-              className="filter-button"
-              onClick={() =>
-                setSort((prev) =>
-                  prev.field === "rating" && prev.order === "desc"
-                    ? { field: "rating", order: "asc" }
-                    : { field: "rating", order: "desc" }
-                )
-              }
-            >
-              {sort.field === "rating"
-                ? sort.order === "desc"
-                  ? "Bäst betyg"
-                  : "Sämst betyg"
-                : "Bäst betyg"}
-            </button>
-            <button
-              className="filter-button"
-              onClick={() => setSort({ field: "", order: "asc" })}
-            >
-              Nollställ sortering
-            </button>
+              {heroTexts[currentText]}
+            </h2>
+            <div className="rain">
+              {Array.from({ length: 40 }).map((_, i) => (
+                <div
+                  className="raindrop"
+                  key={i}
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    animationDelay: `${Math.random() * 1.2}s`,
+                  }}
+                ></div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </nav>
     </>
   );

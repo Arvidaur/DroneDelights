@@ -49,6 +49,7 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
     <div>
       <div style={{ display: "flex", alignItems: "center", marginBottom: 16 }}>
         <img
+          className="restaurant-img"
           src={
             restaurant.image
               ? restaurant.image
@@ -58,19 +59,20 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
           }
           alt={restaurant.name}
           style={{
-            width: "60px",
-            height: "60px",
+            width: "100px",
+            height: "100px",
             objectFit: "cover",
             borderRadius: "50%",
-            marginRight: "1rem",
+            margin: "16px", // Lägg till om du vill ha luft nedtill
           }}
         />
-        <h1 style={{ margin: 0 }}>{restaurant.name} – Meny</h1>
+        <h1 className="h1-main">{restaurant.name} – Meny</h1>
       </div>
 
       {/* KATEGORI-FILTER */}
       <div style={{ marginBottom: 24 }}>
         <button
+          className="button-glow"
           onClick={() => setDishCategory("all")}
           style={{
             marginRight: 8,
@@ -80,6 +82,7 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
           Alla
         </button>
         <button
+          className="button-glow"
           onClick={() => setDishCategory("starters")}
           style={{
             marginRight: 8,
@@ -89,6 +92,7 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
           Förrätt
         </button>
         <button
+          className="button-glow"
           onClick={() => setDishCategory("main")}
           style={{
             marginRight: 8,
@@ -98,6 +102,7 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
           Huvudrätt
         </button>
         <button
+          className="button-glow"
           onClick={() => setDishCategory("dessert")}
           style={{
             marginRight: 8,
@@ -107,6 +112,7 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
           Efterrätt
         </button>
         <button
+          className="button-glow"
           onClick={() => setDishCategory("drinks")}
           style={{
             fontWeight: dishCategory === "drinks" ? "bold" : "normal",
@@ -135,6 +141,7 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
                     </span>
                     <br />
                     <button
+                      className="button-glow"
                       onClick={() => {
                         if (!currentUser) {
                           setLoginPrompt(
@@ -190,6 +197,7 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
                         </span>
                         <br />
                         <button
+                          className="button-glow"
                           onClick={() =>
                             addToCart({
                               ...dish,
