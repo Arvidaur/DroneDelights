@@ -39,12 +39,17 @@ function ProfileDropdown({
             </span>
           </div>
           <button
+            className="button-glow"
             style={{ width: "100%", marginBottom: 8 }}
             onClick={onShowOrders}
           >
             Tidigare beställningar
           </button>
-          <button style={{ width: "100%" }} onClick={onLogout}>
+          <button
+            className="button-glow"
+            style={{ width: "100%" }}
+            onClick={onLogout}
+          >
             Logga ut
           </button>
         </>

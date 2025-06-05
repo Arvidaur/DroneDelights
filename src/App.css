@@ -22,8 +22,8 @@ body,
 }
 
 /* =========================
-   Base Styles
-   ========================= */
+     Base Styles
+     ========================= */
 body,
 h1,
 h2,
@@ -48,8 +48,8 @@ body {
 }
 
 /* =========================
-   Logo & Symbol Styles
-   ========================= */
+     Logo & Symbol Styles
+     ========================= */
 .logo-main {
   width: 100px;
   height: auto;
@@ -71,8 +71,8 @@ body {
 }
 
 /* =========================
-   Cuisine Filter Logos
-   ========================= */
+     Cuisine Filter Logos
+     ========================= */
 .filterLogo {
   height: 50px;
   width: auto;
@@ -94,8 +94,8 @@ body {
 }
 
 /* =========================
-   Typography
-   ========================= */
+     Typography
+     ========================= */
 h1,
 h2,
 h3,
@@ -141,8 +141,8 @@ h1 {
 }
 
 /* =========================
-   Navigation Layout
-   ========================= */
+     Navigation Layout
+     ========================= */
 .top {
   display: flex;
   justify-content: space-between;
@@ -191,8 +191,8 @@ nav {
 }
 
 /* =========================
-   Hero
-   ========================= */
+     Hero
+     ========================= */
 .hero-info {
   position: absolute;
   transform: translate(-50%, -50%) scale(1);
@@ -212,6 +212,7 @@ nav {
 
 .hero {
   width: 100%;
+  height: 400px;
   overflow: hidden;
   position: relative;
 }
@@ -227,8 +228,8 @@ nav {
 }
 
 /* =========================
-   Restaurant Card Grid & Card
-   ========================= */
+     Restaurant Card Grid & Card
+     ========================= */
 .restaurant-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -251,6 +252,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid var(--nav-color);
 }
 
 .restaurant-image {
@@ -262,8 +264,8 @@ nav {
 }
 
 /* =========================
-   Cart & Modal Styles
-   ========================= */
+     Cart & Modal Styles
+     ========================= */
 .Cart {
   position: fixed;
   right: 0;
@@ -290,26 +292,108 @@ nav {
   text-align: center;
 }
 
+/* Modaler: border och radie uppe till vänster */
+.modal,
+.Cart,
+.cart,
+.login-prompt-modal,
+.login-prompt-content,
+.thank-you-modal {
+  border: 2px solid var(--nav-color);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  background: var(--babyPowder-color);
+}
+
+/* Inputfält: större och snyggare i modaler */
+.modal input,
+.Cart input,
+.cart input,
+.login-prompt-modal input,
+.login-prompt-content input,
+.thank-you-modal input,
+form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--nav-color);
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+  margin-bottom: 14px;
+  background: var(--babyPowder-color);
+  color: var(--nav-color);
+  box-sizing: border-box;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.modal input:focus,
+.Cart input:focus,
+.cart input:focus,
+.login-prompt-modal input:focus,
+.login-prompt-content input:focus,
+.thank-you-modal input:focus,
+form input:focus {
+  outline: none;
+  border-color: var(--imperialRed-color);
+  box-shadow: 0 0 0 2px var(--celestialBlue-color, #008dd5);
+}
+
 /* =========================
-   Interactive Symbols
-   ========================= */
+     Interactive Symbols
+     ========================= */
 .symbol-interactive:hover {
   cursor: pointer;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
 
+.login-prompt-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.18); /* valfri dimma bakom */
+}
+
+.login-prompt-content {
+  background: var(--babyPowder-color);
+  border: 2px solid var(--nav-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  padding: 32px 24px;
+  min-width: 260px;
+  max-width: 90vw;
+  text-align: center;
+}
+
 /* =========================
-   Dish List & Card
-   ========================= */
+     Dish List & Card
+     ========================= */
 .dish-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
+  width: 66vw; /* 2/3 av viewport */
+  max-width: 900px; /* valfri maxbredd */
+  margin-left: 32px; /* luft från vänster */
+  margin-right: auto;
+  justify-items: center;
+  box-sizing: border-box;
+  padding-bottom: 24px;
 }
 
+/* Dish-card: 2px border */
 .dish-card {
   background: var(--babyPowder-color);
   border-radius: 16px;
@@ -318,6 +402,7 @@ nav {
   display: flex;
   align-items: center;
   min-height: 180px;
+  border: 2px solid var(--nav-color); /* 2px border */
 }
 
 .dish-card img {
@@ -326,6 +411,15 @@ nav {
   object-fit: cover;
   border-radius: 12px;
   margin-right: 2rem;
+}
+
+.category-heading,
+.dish-category-title,
+.menu-category-title {
+  margin-left: 32px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  text-align: left;
 }
 
 /* Larger images and cards on wide screens */
@@ -342,8 +436,139 @@ nav {
 }
 
 /* =========================
-   Footer
-   ========================= */
+     Payment
+     ========================= */
+
+.payment {
+  width: 66vw; /* 2/3 av viewport */
+  max-width: 500px; /* valfri maxbredd */
+  margin-left: 32px; /* luft från vänster */
+  margin-right: auto;
+  background: var(--babyPowder-color);
+  padding: 32px 24px;
+}
+
+.payment form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrera allt innehåll horisontellt */
+  text-align: center; /* Centrera texten */
+}
+
+/* Radio-grupp styling */
+.radio-group {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 18px;
+  justify-content: center; /* Centrera radio-gruppen */
+}
+
+.radio-group label {
+  position: relative;
+  padding-left: 36px; /* Plats för glow och knapp */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1;
+  min-width: 80px; /* Gör så texten aldrig överlappar */
+}
+
+/* Flytta radio-knappen och glow till vänster om texten */
+.radio-group input[type="radio"] {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  margin: 0;
+}
+
+.radio-glow {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+/* Glow-ring bakom radio-knappen */
+.radio-glow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--nav-color) 40%,
+    var(--celestialBlue-color) 80%,
+    transparent 100%
+  );
+  transition: opacity 0.2s;
+}
+
+/* Visa glow när checked */
+.radio-group input[type="radio"]:checked ~ .radio-glow {
+  opacity: 1;
+  animation: radio-glow-fill 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes radio-glow-fill {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* Anpassad radio-knapp ovanpå glow */
+.radio-group input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--imperialRed-color);
+  border-radius: 50%;
+  background: #fff;
+  margin-right: 8px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.radio-group input[type="radio"]:checked {
+  border-color: var(--celestialBlue-color);
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--celestialBlue-color) 60%,
+    #fff 100%
+  );
+}
+
+.radio-group input[type="radio"]:hover {
+  border-color: var(--orangePeel-color);
+  box-shadow: 0 0 0 3px var(--orangePeel-color, #ff9f1c33);
+}
+
+/* =========================
+     Footer
+     ========================= */
 footer {
   background: linear-gradient(
     to right,
@@ -364,8 +589,8 @@ footer {
 }
 
 /* =========================
-   Filter & Sort Buttons
-   ========================= */
+     Filter & Sort Buttons
+     ========================= */
 .button-glow,
 .filter-button {
   transition: all 0.25s cubic-bezier(0.4, 2, 0.6, 1);
@@ -377,6 +602,7 @@ footer {
   cursor: pointer;
   background: var(--babyPowder-color);
   color: var(--nav-color);
+  border: 2px solid var(--nav-color);
 }
 
 .button-glow:hover,
@@ -403,8 +629,9 @@ footer {
 .filter-button-group {
   display: flex;
   gap: 16px;
-  justify-content: center;
+  justify-content: flex-start; /* Vänsterställd */
   padding: 12px 0;
+  margin-left: 32px; /* Luft från vänsterkanten */
 }
 
 /* Row for filter logos and sort buttons */
@@ -426,9 +653,34 @@ footer {
   align-items: center;
 }
 
+.button-glow:active,
+.filter-button:active {
+  filter: drop-shadow(0 0 12px var(--imperialRed-color)) brightness(1.1);
+  transform: scale(0.96) rotate(-2deg);
+}
+
+/* Effekt på symboler och filterikoner vid tryck och hover */
+.symbol,
+.filterLogo {
+  transition: filter 0.15s, transform 0.15s;
+}
+
+.symbol:hover,
+.filterLogo:hover {
+  filter: drop-shadow(0 0 8px var(--celestialBlue-color)) brightness(1.2);
+  transform: scale(1.12) rotate(-4deg);
+  cursor: pointer;
+}
+
+.symbol:active,
+.filterLogo:active {
+  filter: drop-shadow(0 0 12px var(--celestialBlue-color)) brightness(1.3);
+  transform: scale(0.92) rotate(-8deg);
+}
+
 /* =========================
-   Responsive Adjustments
-   ========================= */
+     Responsive Adjustments
+     ========================= */
 @media (max-width: 600px) {
   .filter-sort-row {
     flex-direction: column;

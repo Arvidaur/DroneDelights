@@ -33,15 +33,8 @@ function Orders({ orders, restaurants, onClose }) {
       </button>
       <h3>Tidigare beställningar</h3>
       <button
-        style={{
-          marginBottom: 16,
-          width: "100%",
-          background: "#eee",
-          border: "1px solid #ccc",
-          borderRadius: 6,
-          padding: 8,
-          cursor: "pointer",
-        }}
+        className="button-glow"
+        style={{ width: "100%", marginBottom: 12 }}
         onClick={onClose}
       >
         Tillbaka
@@ -50,33 +43,36 @@ function Orders({ orders, restaurants, onClose }) {
         <p>Du har inga beställningar än.</p>
       ) : (
         <ul>
-          {orders.map((order, i) => {
-            const rest = restaurants.find((r) => r.id == order.restaurantId);
-            return (
-              <li key={order.id || i} style={{ marginBottom: 12 }}>
-                <strong>{rest ? rest.name : "Okänd restaurang"}</strong>
-                <br />
-                <span style={{ fontSize: "0.9em", color: "#888" }}>
-                  {formatDate(order.date)}
-                </span>
-                <br />
-                {order.items.map((item, j) => {
-                  const dish = rest?.menu[item.category]?.find(
-                    (d) => d.id === item.itemId
-                  );
-                  return (
-                    <div key={j}>
-                      {dish ? dish.name : "Okänd rätt"} ({item.category}) x{" "}
-                      {item.quantity}
-                    </div>
-                  );
-                })}
-                <div style={{ fontSize: "0.9em", color: "#888" }}>
-                  Totalt: {order.totalPrice} kr
-                </div>
-              </li>
-            );
-          })}
+          {orders
+            .slice() // kopiera arrayen så vi inte muterar props
+            .sort((a, b) => new Date(b.date) - new Date(a.date)) // sortera senaste först
+            .map((order, i) => {
+              const rest = restaurants.find((r) => r.id == order.restaurantId);
+              return (
+                <li key={order.id || i} style={{ marginBottom: 12 }}>
+                  <strong>{rest ? rest.name : "Okänd restaurang"}</strong>
+                  <br />
+                  <span style={{ fontSize: "0.9em", color: "#888" }}>
+                    {formatDate(order.date)}
+                  </span>
+                  <br />
+                  {order.items.map((item, j) => {
+                    const dish = rest?.menu[item.category]?.find(
+                      (d) => d.id === item.itemId
+                    );
+                    return (
+                      <div key={j}>
+                        {dish ? dish.name : "Okänd rätt"} ({item.category}) x{" "}
+                        {item.quantity}
+                      </div>
+                    );
+                  })}
+                  <div style={{ fontSize: "0.9em", color: "#888" }}>
+                    Totalt: {order.totalPrice} kr
+                  </div>
+                </li>
+              );
+            })}
         </ul>
       )}
     </aside>

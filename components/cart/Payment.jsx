@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Order from "./Order"; // Importera Order
 
 function Payment({
   cartItems,
@@ -13,6 +12,7 @@ function Payment({
   setLastOrderInfo,
   setShowOrderReceipt,
   onOrderComplete,
+  triggerFireworks,
 }) {
   const [method, setMethod] = useState("kort");
   const [number, setNumber] = useState("");
@@ -28,8 +28,15 @@ function Payment({
       alert("Du måste ange en adress!");
       return;
     }
-    if (!number.match(/^\d+$/)) {
+    if (!number.match(/^\d+$/) && method === "kort") {
       alert("Numret måste bara innehålla siffror!");
+      return;
+    }
+    if (
+      method === "swish" &&
+      !(number.startsWith("07") || number.startsWith("+46"))
+    ) {
+      alert("Swishnummer måste börja med 07 eller +46!");
       return;
     }
 
@@ -107,63 +114,61 @@ function Payment({
         }),
       });
     }
+    const restaurant = restaurants.find((r) => r.id == orderInfo.restaurantId);
 
+    onOrderComplete(orderData, restaurant);
+    if (triggerFireworks) triggerFireworks();
     setCartItems([]);
     setOrderInfo(null);
-    setLastOrder(null);
-    setShowReceipt(false);
-    const restaurant = restaurants.find((r) => r.id == orderData.restaurantId);
-    if (typeof onOrderComplete === "function") {
-      onOrderComplete(orderData, restaurant);
-    }
-    navigate("/");
+    setTimeout(() => {
+      setShowThankYou(true);
+      navigate("/");
+    }, 100); // eller visa ThankYou på startsidan
   };
 
-  if (showReceipt && lastOrder) {
-    // Visa inget kvitto här, vi visar det på startsidan istället!
-    navigate("/");
-    return null;
-  }
-
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Betalning</h2>
-      <label>
+    <div className="payment" style={{ position: "relative" }}>
+      <form onSubmit={handleSubmit}>
+        <h2>Betalning</h2>
+        <div className="radio-group">
+          <label>
+            <input
+              type="radio"
+              value="kort"
+              checked={method === "kort"}
+              onChange={() => setMethod("kort")}
+            />
+            Kort
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="swish"
+              checked={method === "swish"}
+              onChange={() => setMethod("swish")}
+            />
+            Swish
+          </label>
+        </div>
         <input
-          type="radio"
-          value="kort"
-          checked={method === "kort"}
-          onChange={() => setMethod("kort")}
+          type="text"
+          placeholder={method === "kort" ? "Kortnummer" : "Swishnummer"}
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+          required
         />
-        Kort
-      </label>
-      <label>
         <input
-          type="radio"
-          value="swish"
-          checked={method === "swish"}
-          onChange={() => setMethod("swish")}
+          type="text"
+          placeholder="Leveransadress"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          required
         />
-        Swish
-      </label>
-      <br />
-      <input
-        type="text"
-        placeholder={method === "kort" ? "Kortnummer" : "Swishnummer"}
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-        required
-      />
-      <br />
-      <input
-        type="text"
-        placeholder="Leveransadress"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
-        required
-      />
-      <button type="submit">Betala</button>
-    </form>
+        <button className="button-glow" type="submit">
+          Betala
+        </button>
+      </form>
+    </div>
   );
 }
 

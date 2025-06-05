@@ -1,28 +1,40 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
   const navigate = useNavigate();
+  const location = useLocation(); // Lägg till denna rad
 
-  const increase = (id, category) => {
+  const increase = (id, category, restaurantId) => {
     setCartItems((prev) =>
       prev.map((item) =>
-        item.id === id && item.category === category
+        item.id === id &&
+        item.category === category &&
+        item.restaurantId === restaurantId
           ? { ...item, quantity: item.quantity + 1 }
           : item
       )
     );
   };
 
-  const decreaseOrRemove = (id, category, quantity) => {
+  const decreaseOrRemove = (id, category, quantity, restaurantId) => {
     if (quantity === 1) {
       setCartItems((prev) =>
-        prev.filter((item) => !(item.id === id && item.category === category))
+        prev.filter(
+          (item) =>
+            !(
+              item.id === id &&
+              item.category === category &&
+              item.restaurantId === restaurantId
+            )
+        )
       );
     } else {
       setCartItems((prev) =>
         prev.map((item) =>
-          item.id === id && item.category === category
+          item.id === id &&
+          item.category === category &&
+          item.restaurantId === restaurantId
             ? { ...item, quantity: item.quantity - 1 }
             : item
         )
@@ -47,6 +59,11 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
     navigate("/payment");
   };
 
+  const total = cartItems.reduce(
+    (sum, item) => sum + (item.price || 0) * (item.quantity || 1),
+    0
+  );
+
   return (
     <aside className="Cart">
       <button
@@ -65,12 +82,16 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
         &minus;
       </button>
       <h3>Kundvagn</h3>
-      <ul>
+      <ul className="cart-items">
         {cartItems.length === 0 ? (
           <li>Din varukorg är tom</li>
         ) : (
           cartItems.map((item) => (
-            <li key={item.id + "-" + item.category}>
+            <li
+              className="cart-image"
+              key={item.id + "-" + item.category + "-" + item.restaurantId}
+              style={{ display: "flex", alignItems: "flex-start" }}
+            >
               <img
                 src={
                   item.image
@@ -86,48 +107,87 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
                   objectFit: "cover",
                   borderRadius: "8px",
                   marginRight: "1rem",
+                  marginTop: "2px",
                 }}
               />
-              <strong>
-                {item.name}{" "}
-                <span style={{ fontSize: "0.9em", color: "#888" }}>
-                  ({item.category})
-                </span>
-              </strong>
               <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  marginLeft: "1rem",
-                }}
+                style={{ display: "flex", flexDirection: "column", flex: 1 }}
               >
-                <button
-                  onClick={() =>
-                    decreaseOrRemove(item.id, item.category, item.quantity)
-                  }
-                  style={{ marginRight: "0.5rem" }}
+                <strong style={{ fontSize: "1.1rem", marginBottom: 2 }}>
+                  {item.name}
+                </strong>
+                <span
+                  style={{ fontSize: "0.95em", color: "#888", marginBottom: 2 }}
                 >
-                  {item.quantity === 1 ? "🗑️" : "-"}
-                </button>
-                <span>{item.quantity}</span>
-                <button
-                  onClick={() => increase(item.id, item.category)}
-                  style={{ marginLeft: "0.5rem" }}
+                  {item.category}
+                </span>
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: "var(--nav-color)",
+                    marginBottom: 8,
+                  }}
                 >
-                  +
-                </button>
+                  {item.price} kr
+                </span>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginTop: 4,
+                  }}
+                >
+                  <button
+                    className="cart-qty-btn button-glow"
+                    onClick={() =>
+                      decreaseOrRemove(
+                        item.id,
+                        item.category,
+                        item.quantity,
+                        item.restaurantId
+                      )
+                    }
+                    style={{ marginRight: "0.5rem" }}
+                  >
+                    {item.quantity === 1 ? "🗑️" : "-"}
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button
+                    className="cart-qty-btn button-glow"
+                    onClick={() =>
+                      increase(item.id, item.category, item.restaurantId)
+                    }
+                    style={{ marginLeft: "0.5rem" }}
+                  >
+                    +
+                  </button>
+                  <span style={{ marginLeft: "1rem" }}>
+                    {item.price && item.quantity
+                      ? item.price * item.quantity
+                      : 0}{" "}
+                    kr
+                  </span>
+                </div>
               </div>
-              <span style={{ marginLeft: "1rem" }}>
-                {item.price && item.quantity ? item.price * item.quantity : 0}{" "}
-                kr
-              </span>
             </li>
           ))
         )}
       </ul>
-      <button onClick={goToPayment} disabled={cartItems.length === 0}>
-        Beställ
-      </button>
+      {total > 0 && (
+        <p style={{ fontWeight: "bold", margin: "8px 0 16px 0" }}>
+          Totalt: {total} kr
+        </p>
+      )}
+      {/* Visa EJ knappen om vi är på /payment */}
+      {location.pathname !== "/payment" && cartItems.length > 0 && (
+        <button
+          className="button-glow"
+          onClick={goToPayment}
+          disabled={cartItems.length === 0}
+        >
+          Till Betalning
+        </button>
+      )}
     </aside>
   );
 }

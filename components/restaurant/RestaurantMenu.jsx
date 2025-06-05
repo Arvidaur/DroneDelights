@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const categoryNames = {
-  starters: "Förrätt",
-  main: "Huvudrätt",
-  dessert: "Efterrätt",
+  all: "Alla rätter",
+  starters: "Förrätter",
+  main: "Huvudrätter",
+  dessert: "Efterrätter",
   drinks: "Drycker",
 };
 
@@ -12,6 +13,7 @@ const categories = ["starters", "main", "dessert", "drinks"];
 
 function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [restaurant, setRestaurant] = useState(null);
   const [dishCategory, setDishCategory] = useState("all"); // <-- NYTT
 
@@ -69,8 +71,16 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
         <h1 className="h1-main">{restaurant.name} – Meny</h1>
       </div>
 
+      <button
+        className="button-glow"
+        style={{ marginBottom: 24, marginLeft: 32 }}
+        onClick={() => navigate("/")}
+      >
+        Tillbaka
+      </button>
+
       {/* KATEGORI-FILTER */}
-      <div style={{ marginBottom: 24 }}>
+      <div className="filter-button-group" style={{ marginBottom: 24 }}>
         <button
           className="button-glow"
           onClick={() => setDishCategory("all")}
@@ -125,7 +135,7 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
       {/* Visa populära rätter endast om Alla är valt */}
       {dishCategory === "all" && (
         <section id="popular">
-          <h2>Mest Populära</h2>
+          <h2 className="category-heading">Mest Populära</h2>
           {popularDishes.length > 0 ? (
             <ul className="dish-list">
               {popularDishes.map((dish) => (
@@ -172,13 +182,23 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
 
       {/* Visa filtrerade rätter */}
       <section>
+        {/* Visa alltid rubriken för vald kategori */}
+        {dishCategory !== "all" && (
+          <h2
+            className="category-heading"
+            style={{ marginTop: 32, marginBottom: 24 }}
+          >
+            {categoryNames[dishCategory]}
+          </h2>
+        )}
+
         {dishCategory === "all" ? (
           categories.map((cat) => {
             const dishes = allDishes.filter((dish) => dish.category === cat);
             if (dishes.length === 0) return null;
             return (
               <div key={cat}>
-                <h2>{categoryNames[cat]}</h2>
+                <h2 className="category-heading">{categoryNames[cat]}</h2>
                 <ul className="dish-list">
                   {dishes.map((dish) => (
                     <li key={dish.id + dish.category} className="dish-card">

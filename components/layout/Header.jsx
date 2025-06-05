@@ -6,6 +6,7 @@ function Header({
   onProfileClick,
   onFavoritesClick,
   onCartClick,
+  cartCount,
 }) {
   const navigate = useNavigate();
   const location = useLocation(); // Lägg till denna rad
@@ -29,7 +30,7 @@ function Header({
     "Neonsmak direkt till din dörr – inga frågor ställda.",
     "Byggd för smaken. Kodad för leverans.",
     "Din cybermåltid är bara ett klick bort.",
-    "Laddar tacos... ✔️ Teleporterar smak... ✔️",
+    "Laddar tacos... Teleporterar smak...",
     "Äkta streetfood – från framtidens gator.",
     "Vi flyger – så du slipper gå.",
     "När natten är mörk, är vi neon.",
@@ -41,6 +42,7 @@ function Header({
     "Initierar vitlöksbröd...",
     "Releasing Drones... Please Stand by...",
     "Laddar aranchinibollar...",
+    "Alltid gratis leverans!",
   ];
 
   const [currentText, setCurrentText] = useState(() =>
@@ -60,7 +62,7 @@ function Header({
           } while (next === prev && heroTexts.length > 1);
           return next;
         });
-        // Lägg till denna rad för att slumpa positionen!
+        // Randomize the position of the text
         setTextPosition({
           top: `${30 + Math.random() * 40}%`, // 30% till 70% av höjden
           left: `${20 + Math.random() * 60}%`, // 20% till 80% av bredden
@@ -98,13 +100,35 @@ function Header({
               onClick={onFavoritesClick}
               style={{ cursor: "pointer" }}
             />
-            <img
-              src="src/assets/shopping-cart.png"
-              alt="Checkout"
-              className="symbol checkout symbol-interactive"
-              onClick={onCartClick}
-              style={{ cursor: "pointer" }}
-            />
+            <div style={{ position: "relative" }}>
+              <img
+                src="src/assets/shopping-cart.png"
+                alt="Checkout"
+                className="symbol checkout symbol-interactive"
+                onClick={onCartClick}
+                style={{ cursor: "pointer" }}
+              />
+              {cartCount > 0 && (
+                <span
+                  style={{
+                    position: "absolute",
+                    top: -8,
+                    right: -8,
+                    background: "var(--imperialRed-color)",
+                    color: "#fff",
+                    borderRadius: "50%",
+                    padding: "2px 8px",
+                    fontSize: "0.9rem",
+                    fontWeight: "bold",
+                    minWidth: 22,
+                    textAlign: "center",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                  }}
+                >
+                  {cartCount}
+                </span>
+              )}
+            </div>
           </div>
         </div>
 
@@ -114,7 +138,7 @@ function Header({
             className="hero"
             style={{
               width: "100%",
-              height: "400px",
+
               backgroundImage: "url('/assets/DroneDelightsHeroImage3.png')",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",

@@ -75,10 +75,11 @@ function Register({ onRegister, goToLogin }) {
         required
         style={{ width: "100%", marginBottom: 8 }}
       />
-      <button type="submit" style={{ width: "100%" }}>
+      <button className="button-glow" type="submit" style={{ width: "100%" }}>
         Skapa användare
       </button>
       <button
+        className="button-glow"
         type="button"
         onClick={goToLogin}
         style={{ width: "100%", marginTop: 8 }}

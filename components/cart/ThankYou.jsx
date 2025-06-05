@@ -23,18 +23,18 @@ function ThankYou({ order, restaurant, onClose }) {
         <strong>Leveranstid:</strong> {restaurant.deliveryTime} min
       </p>
       <h3>Din beställning:</h3>
-      <ul style={{ textAlign: "left" }}>
+      <ul className="thankyou-order-list">
         {order.items.map((item, i) => {
           const dish = restaurant.menu[item.category]?.find(
             (d) => d.id === item.itemId
           );
           return (
-            <li key={i}>
+            <li className="thankyou-order-item" key={i}>
               {dish ? (
-                <>
+                <span className="thankyou-dish-info">
                   {dish.name} ({item.category}) x {item.quantity} –{" "}
                   {dish.price * item.quantity} kr
-                </>
+                </span>
               ) : (
                 <>Okänd rätt x {item.quantity}</>
               )}
@@ -50,7 +50,9 @@ function ThankYou({ order, restaurant, onClose }) {
         <br />
         <strong>Leveransadress:</strong> {order.deliveryAddress}
       </p>
-      <button onClick={onClose}>Stäng</button>
+      <button className="button-glow" onClick={onClose}>
+        Stäng
+      </button>
     </div>
   );
 }

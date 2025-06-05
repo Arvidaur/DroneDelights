@@ -16,6 +16,8 @@ function Login({ setCurrentUser, goToRegister, onClose }) {
     console.log(users);
     if (users.length > 0) {
       setCurrentUser(users[0]);
+      localStorage.setItem("currentUser", JSON.stringify(users[0]));
+      localStorage.setItem("loginTime", Date.now().toString());
     } else {
       setError("Fel användarnamn eller lösenord");
     }
@@ -32,6 +34,7 @@ function Login({ setCurrentUser, goToRegister, onClose }) {
     >
       {onClose && (
         <button
+          className="close-modal"
           type="button"
           style={{
             position: "absolute",
@@ -65,10 +68,11 @@ function Login({ setCurrentUser, goToRegister, onClose }) {
         required
         style={{ width: "100%", marginBottom: 8 }}
       />
-      <button type="submit" style={{ width: "100%" }}>
+      <button className="button-glow" type="submit" style={{ width: "100%" }}>
         Logga in
       </button>
       <button
+        className="button-glow"
         type="button"
         onClick={goToRegister}
         style={{ width: "100%", marginTop: 8 }}

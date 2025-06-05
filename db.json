@@ -15,7 +15,7 @@
             "price": 39,
             "description": "Crispy french fries with a hint of salt.",
             "image": "/assets/JohnnysBurgers/fries-1.png",
-            "timesOrdered": 6
+            "timesOrdered": 14
           },
           {
             "id": 2,
@@ -41,7 +41,7 @@
             "price": 139,
             "description": "A juicy beef patty with lettuce, tomato, and special Johnny sauce.",
             "image": "/assets/JohnnysBurgers/burger-9.png",
-            "timesOrdered": 3
+            "timesOrdered": 5
           },
           {
             "id": 2,
@@ -67,7 +67,7 @@
             "price": 69,
             "description": "A rich chocolate brownie with a scoop of vanilla ice cream.",
             "image": "/assets/JohnnysBurgers/JohnnysBrownie.png",
-            "timesOrdered": 5
+            "timesOrdered": 6
           }
         ],
         "drinks": [
@@ -77,7 +77,7 @@
             "price": 69,
             "description": "A refreshing beer with a hint of citrus.",
             "image": "/assets/JohnnysBurgers/Johnny's Beer.png",
-            "timesOrdered": 4
+            "timesOrdered": 5
           }
         ]
       }
@@ -115,7 +115,7 @@
             "price": 139,
             "description": "Rich pork bone broth with ramen noodles, chashu, and soft-boiled egg.",
             "image": "/assets/KamakaziRamen/tonkotsu.png",
-            "timesOrdered": 1
+            "timesOrdered": 2
           },
           {
             "id": 2,
@@ -133,7 +133,7 @@
             "price": 69,
             "description": "Sweet rice cake filled with ice cream.",
             "image": "/assets/KamakaziRamen/Mochi.png",
-            "timesOrdered": 0
+            "timesOrdered": 4
           }
         ],
         "drinks": [
@@ -143,7 +143,7 @@
             "price": 89,
             "description": "Japanese rice wine.",
             "image": "/assets/KamakaziRamen/Sake.png",
-            "timesOrdered": 0
+            "timesOrdered": 13
           }
         ]
       }
@@ -163,7 +163,7 @@
             "price": 49,
             "description": "Warm, fluffy focaccia topped with rosemary, sea salt, and served with cold-pressed olive oil.",
             "image": "/assets/LupoRosso/Focaccia.png",
-            "timesOrdered": 0
+            "timesOrdered": 39
           },
           {
             "id": 2,
@@ -171,7 +171,7 @@
             "price": 69,
             "description": "Creamy burrata on a bed of marinated cherry tomatoes, fresh basil, and a drizzle of balsamic glaze.",
             "image": "/assets/LupoRosso/Burrata.png",
-            "timesOrdered": 0
+            "timesOrdered": 2
           }
         ],
         "main": [
@@ -181,7 +181,7 @@
             "price": 139,
             "description": "Tomato base, fior di latte, spicy 'nduja sausage, black garlic, and fresh chili.",
             "image": "/assets/LupoRosso/DiavolaNera.png",
-            "timesOrdered": 0
+            "timesOrdered": 2
           },
           {
             "id": 2,
@@ -199,7 +199,7 @@
             "price": 79,
             "description": "Classic tiramisù with a twist — soaked in limoncello instead of rum.",
             "image": "/assets/LupoRosso/Tiramisu.png",
-            "timesOrdered": 0
+            "timesOrdered": 2
           }
         ],
         "drinks": [
@@ -217,7 +217,7 @@
             "price": 45,
             "description": "House-made lemon soda with mint and a kick of ginger. Available with gin.",
             "image": "/assets/LupoRosso/Lemonata.png",
-            "timesOrdered": 0
+            "timesOrdered": 1
           }
         ]
       }
@@ -460,6 +460,36 @@
           "restaurantId": "1",
           "category": "main",
           "itemId": 3
+        },
+        {
+          "restaurantId": "3",
+          "category": "starters",
+          "itemId": 2
+        },
+        {
+          "restaurantId": "3",
+          "category": "starters",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "3",
+          "category": "main",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "3",
+          "category": "dessert",
+          "itemId": 1
+        },
+        {
+          "restaurantId": "3",
+          "category": "dessert",
+          "itemId": 2
+        },
+        {
+          "restaurantId": "3",
+          "category": "drinks",
+          "itemId": 2
         }
       ]
     }
@@ -967,6 +997,887 @@
       "deliveryAddress": "gata",
       "paymentMethod": "kort",
       "date": "2025-06-02T07:57:49.913Z"
+    },
+    {
+      "id": "1a46",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 2,
+          "quantity": 2
+        },
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 2
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 454,
+      "deliveryAddress": "Adress 2 ",
+      "paymentMethod": "swish",
+      "date": "2025-06-04T18:46:25.125Z"
+    },
+    {
+      "id": "baf9",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 178,
+      "deliveryAddress": "a",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T07:25:23.444Z"
+    },
+    {
+      "id": "7350",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 139,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T07:33:48.469Z"
+    },
+    {
+      "id": "26da",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 3
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 336,
+      "deliveryAddress": "hg",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T08:02:53.650Z"
+    },
+    {
+      "id": "f36c",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 247,
+      "deliveryAddress": "fd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:07:35.450Z"
+    },
+    {
+      "id": "ec40",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 4
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 563,
+      "deliveryAddress": "ihjga",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T08:08:01.515Z"
+    },
+    {
+      "id": "2b56",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 69,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:13:05.361Z"
+    },
+    {
+      "id": "790c",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 89,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:15:09.253Z"
+    },
+    {
+      "id": "65db",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 39,
+      "deliveryAddress": "yiti",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:18:40.250Z"
+    },
+    {
+      "id": "27ab",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 89,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:23:26.135Z"
+    },
+    {
+      "id": "9450",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 267,
+      "deliveryAddress": "ugdufyjgf",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:26:18.568Z"
+    },
+    {
+      "id": "5b9c",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "ASD",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:28:17.515Z"
+    },
+    {
+      "id": "0c59",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:28:26.965Z"
+    },
+    {
+      "id": "d5ef",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "ASD",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:35:10.187Z"
+    },
+    {
+      "id": "0042",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "ad",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:37:51.511Z"
+    },
+    {
+      "id": "741c",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:41:34.430Z"
+    },
+    {
+      "id": "98e7",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:27.297Z"
+    },
+    {
+      "id": "3716",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:32.207Z"
+    },
+    {
+      "id": "eefd",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:35.470Z"
+    },
+    {
+      "id": "6f85",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:35.638Z"
+    },
+    {
+      "id": "1fdb",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:35.795Z"
+    },
+    {
+      "id": "3454",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:35.942Z"
+    },
+    {
+      "id": "d99a",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:36.122Z"
+    },
+    {
+      "id": "7e83",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:36.279Z"
+    },
+    {
+      "id": "fdd6",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:38.056Z"
+    },
+    {
+      "id": "b109",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:38.203Z"
+    },
+    {
+      "id": "ec3b",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:38.350Z"
+    },
+    {
+      "id": "0513",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:38.495Z"
+    },
+    {
+      "id": "d644",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:38.630Z"
+    },
+    {
+      "id": "fecb",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:38.776Z"
+    },
+    {
+      "id": "52d4",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:40.463Z"
+    },
+    {
+      "id": "af3d",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:40.610Z"
+    },
+    {
+      "id": "27b2",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:40.757Z"
+    },
+    {
+      "id": "f098",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:40.903Z"
+    },
+    {
+      "id": "259d",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "g",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:41.050Z"
+    },
+    {
+      "id": "fd1d",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "gz",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:48:43.614Z"
+    },
+    {
+      "id": "9666",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "asf",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T08:48:51.612Z"
+    },
+    {
+      "id": "214b",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "asf",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T08:48:52.085Z"
+    },
+    {
+      "id": "e2a5",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "asf",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T08:48:52.232Z"
+    },
+    {
+      "id": "4975",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "asf",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T08:48:52.367Z"
+    },
+    {
+      "id": "94d5",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "asf",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T08:48:52.512Z"
+    },
+    {
+      "id": "7913",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "asf",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T08:48:52.637Z"
+    },
+    {
+      "id": "1357",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "asf",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T08:51:25.438Z"
+    },
+    {
+      "id": "4624",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 49,
+      "deliveryAddress": "uyfk",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T08:52:12.896Z"
+    },
+    {
+      "id": "d307",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 89,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:54:19.616Z"
+    },
+    {
+      "id": "da75",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 39,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T08:55:37.531Z"
+    },
+    {
+      "id": "f725",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 39,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T09:00:19.970Z"
+    },
+    {
+      "id": "42b9",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 39,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T09:01:16.278Z"
+    },
+    {
+      "id": "3028",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 39,
+      "deliveryAddress": "kjh",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T09:04:51.285Z"
+    },
+    {
+      "id": "f5fb",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 39,
+      "deliveryAddress": "jyk",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T13:27:28.771Z"
+    },
+    {
+      "id": "2b87",
+      "userId": "9ed7",
+      "restaurantId": "3",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 4
+        },
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "dessert",
+          "itemId": 2,
+          "quantity": 1
+        },
+        {
+          "category": "drinks",
+          "itemId": 2,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 533,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T15:48:59.102Z"
     }
   ]
 }
