@@ -72,7 +72,7 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
       </div>
 
       <button
-        className="button-glow"
+        className="button-glow dish-back-btn"
         style={{ marginBottom: 24, marginLeft: 32 }}
         onClick={() => navigate("/")}
       >
@@ -151,7 +151,7 @@ function RestaurantMenu({ addToCart, currentUser, setLoginPrompt }) {
                     </span>
                     <br />
                     <button
-                      className="button-glow"
+                      className="button-glow add-to-cart-btn"
                       onClick={() => {
                         if (!currentUser) {
                           setLoginPrompt(

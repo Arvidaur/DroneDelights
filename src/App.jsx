@@ -17,13 +17,14 @@ import useMostOrdered from "./hooks/useMostOrdered";
 import Confetti from "react-confetti";
 
 function App() {
+  // State för varukorg, användare, filter, modaler m.m.
   const [cartItems, setCartItems] = useState([]);
   const [orderInfo, setOrderInfo] = useState(null);
   const [currentUser, setCurrentUser] = useState(() => {
+    // Hämta användare från localStorage och logga ut efter 15 min
     const saved = localStorage.getItem("currentUser");
     const loginTime = localStorage.getItem("loginTime");
     if (saved && loginTime) {
-      // 15 minuter = 900000 ms
       if (Date.now() - Number(loginTime) < 900000) {
         return JSON.parse(saved);
       } else {
@@ -47,18 +48,20 @@ function App() {
   const [lastOrderInfo, setLastOrderInfo] = useState(null);
   const [sort, setSort] = useState({ field: "", order: "asc" });
   const [showLogin, setShowLogin] = useState(false);
-  const [loginPrompt, setLoginPrompt] = useState(""); // Lägg till denna
+  const [loginPrompt, setLoginPrompt] = useState(""); // Visar prompt om inloggning krävs
   const [showFireworks, setShowFireworks] = useState(false);
   const [fadeOutConfetti, setFadeOutConfetti] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Hämta restauranger vid start
   useEffect(() => {
     fetch("http://localhost:3001/Restaurant")
       .then((res) => res.json())
       .then((data) => setRestaurants(data));
   }, []);
 
+  // Hämta ordrar för inloggad användare
   useEffect(() => {
     if (currentUser) {
       fetch(`http://localhost:3001/orders?userId=${currentUser.id}`)
@@ -67,7 +70,7 @@ function App() {
     }
   }, [currentUser]);
 
-  // Effekt för att logga ut efter 15 minuter
+  // Logga ut automatiskt efter 15 minuter
   useEffect(() => {
     if (!currentUser) return;
     const loginTime = localStorage.getItem("loginTime");
@@ -83,8 +86,10 @@ function App() {
     return () => clearTimeout(timer);
   }, [currentUser]);
 
+  // Hämta mest beställda rätter för favoriter
   const mostOrdered = useMostOrdered(orders, 5);
 
+  // Hantera klick på profil-ikon
   const onProfileClick = () => {
     if (!currentUser) {
       setShowRegister(false);
@@ -98,6 +103,7 @@ function App() {
     }
   };
 
+  // Hantera klick på favoriter-ikon
   const onFavoritesClick = () => {
     if (!currentUser) {
       setLoginPrompt("Du måste vara inloggad för att se dina favoriter.");
@@ -106,6 +112,7 @@ function App() {
     setShowFavorites(true);
   };
 
+  // Hantera klick på kundvagns-ikon
   const onCartClick = () => {
     if (!currentUser) {
       setLoginPrompt("Du måste vara inloggad för att använda kundvagnen.");
@@ -114,21 +121,22 @@ function App() {
     setShowCart((prev) => !prev);
   };
 
-  // Funktion för att visa konfetti
+  // Visa konfetti vid beställning
   const triggerFireworks = () => {
     setShowFireworks(true);
   };
 
-  // Logga ut-funktion
+  // Logga ut användare och rensa localStorage
   const handleLogout = () => {
     setCurrentUser(null);
     localStorage.removeItem("currentUser");
     localStorage.removeItem("loginTime");
-    // ...lägg till mer om du vill visa modal eller liknande...
+    // Här kan du lägga till mer logik vid utloggning om du vill
   };
 
   return (
     <>
+      {/* Visa konfetti på startsidan vid beställning */}
       {location.pathname === "/" && showFireworks && (
         <div className={`confetti-fade${fadeOutConfetti ? "" : " show"}`}>
           <Confetti
@@ -158,9 +166,9 @@ function App() {
         filter={filter}
         setSort={setSort}
         sort={sort}
-        cartCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)} // Lägg till denna rad
+        cartCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)} // Antal varor i kundvagnen
       >
-        {/* Routing */}
+        {/* Routing för alla sidor */}
         <Routes>
           <Route
             path="/"
@@ -178,7 +186,10 @@ function App() {
               <RestaurantMenu
                 addToCart={(item) => {
                   setCartItems([...cartItems, item]);
-                  setShowCart(true); // Öppna kundvagnen automatiskt
+                  // Öppna Cart endast på desktop/surfplatta
+                  if (window.innerWidth > 600) {
+                    setShowCart(true);
+                  }
                 }}
                 currentUser={currentUser}
                 setLoginPrompt={setLoginPrompt}
@@ -208,7 +219,7 @@ function App() {
           />
         </Routes>
 
-        {/* Modaler */}
+        {/* Modaler och overlays */}
         {currentUser && showCart && !showOrderReceipt && (
           <Cart
             cartItems={cartItems}
@@ -293,13 +304,19 @@ function App() {
             onClose={() => setShowThankYou(false)}
           />
         )}
+        {/* Visa login-prompt om användaren försöker göra något som kräver inloggning */}
         {loginPrompt && (
           <div className="login-prompt-modal">
             <div className="login-prompt-content">
               <div style={{ fontSize: 20, marginBottom: 20 }}>
                 {loginPrompt}
               </div>
-              <button className="button-glow" onClick={() => setLoginPrompt("")}>Stäng</button>
+              <button
+                className="button-glow"
+                onClick={() => setLoginPrompt("")}
+              >
+                Stäng
+              </button>
             </div>
           </div>
         )}

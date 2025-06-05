@@ -15,7 +15,7 @@
             "price": 39,
             "description": "Crispy french fries with a hint of salt.",
             "image": "/assets/JohnnysBurgers/fries-1.png",
-            "timesOrdered": 14
+            "timesOrdered": 17
           },
           {
             "id": 2,
@@ -41,7 +41,7 @@
             "price": 139,
             "description": "A juicy beef patty with lettuce, tomato, and special Johnny sauce.",
             "image": "/assets/JohnnysBurgers/burger-9.png",
-            "timesOrdered": 5
+            "timesOrdered": 8
           },
           {
             "id": 2,
@@ -67,7 +67,7 @@
             "price": 69,
             "description": "A rich chocolate brownie with a scoop of vanilla ice cream.",
             "image": "/assets/JohnnysBurgers/JohnnysBrownie.png",
-            "timesOrdered": 6
+            "timesOrdered": 7
           }
         ],
         "drinks": [
@@ -143,7 +143,7 @@
             "price": 89,
             "description": "Japanese rice wine.",
             "image": "/assets/KamakaziRamen/Sake.png",
-            "timesOrdered": 13
+            "timesOrdered": 14
           }
         ]
       }
@@ -1878,6 +1878,90 @@
       "deliveryAddress": "asd",
       "paymentMethod": "kort",
       "date": "2025-06-05T15:48:59.102Z"
+    },
+    {
+      "id": "c606",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "dessert",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        },
+        {
+          "category": "main",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 525,
+      "deliveryAddress": "asd",
+      "paymentMethod": "swish",
+      "date": "2025-06-05T18:10:42.848Z"
+    },
+    {
+      "id": "fc65",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 39,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T21:20:33.496Z"
+    },
+    {
+      "id": "b5dc",
+      "userId": "9ed7",
+      "restaurantId": "1",
+      "items": [
+        {
+          "category": "starters",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 39,
+      "deliveryAddress": "asd",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T21:23:11.320Z"
+    },
+    {
+      "id": "b79d",
+      "userId": "9ed7",
+      "restaurantId": "2",
+      "items": [
+        {
+          "category": "drinks",
+          "itemId": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 89,
+      "deliveryAddress": "sdas",
+      "paymentMethod": "kort",
+      "date": "2025-06-05T21:23:36.461Z"
     }
   ]
 }

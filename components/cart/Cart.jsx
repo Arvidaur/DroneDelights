@@ -3,8 +3,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
   const navigate = useNavigate();
-  const location = useLocation(); // Lägg till denna rad
+  const location = useLocation();
 
+  // Öka antal av en vara i kundvagnen
   const increase = (id, category, restaurantId) => {
     setCartItems((prev) =>
       prev.map((item) =>
@@ -17,6 +18,7 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
     );
   };
 
+  // Minska antal eller ta bort vara om quantity = 1
   const decreaseOrRemove = (id, category, quantity, restaurantId) => {
     if (quantity === 1) {
       setCartItems((prev) =>
@@ -42,7 +44,7 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
     }
   };
 
-  // Spara orderinfo och gå till payment
+  // Spara orderinfo och gå till payment-sidan
   const goToPayment = () => {
     setOrderInfo({
       restaurantId: cartItems[0]?.restaurantId || 1,
@@ -56,9 +58,14 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
         0
       ),
     });
+    // Stäng Cart på mobil så payment syns direkt
+    if (window.innerWidth <= 600) {
+      setShowCart(false);
+    }
     navigate("/payment");
   };
 
+  // Räkna ut totalsumma för kundvagnen
   const total = cartItems.reduce(
     (sum, item) => sum + (item.price || 0) * (item.quantity || 1),
     0
@@ -66,6 +73,7 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
 
   return (
     <aside className="Cart">
+      {/* Minimera/stäng kundvagn */}
       <button
         style={{
           position: "absolute",
@@ -83,6 +91,7 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
       </button>
       <h3>Kundvagn</h3>
       <ul className="cart-items">
+        {/* Visa tom-meddelande eller lista varor */}
         {cartItems.length === 0 ? (
           <li>Din varukorg är tom</li>
         ) : (
@@ -92,6 +101,7 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
               key={item.id + "-" + item.category + "-" + item.restaurantId}
               style={{ display: "flex", alignItems: "flex-start" }}
             >
+              {/* Bild på varan */}
               <img
                 src={
                   item.image
@@ -137,6 +147,7 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
                     marginTop: 4,
                   }}
                 >
+                  {/* Minska eller ta bort vara */}
                   <button
                     className="cart-qty-btn button-glow"
                     onClick={() =>
@@ -152,6 +163,7 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
                     {item.quantity === 1 ? "🗑️" : "-"}
                   </button>
                   <span>{item.quantity}</span>
+                  {/* Öka antal */}
                   <button
                     className="cart-qty-btn button-glow"
                     onClick={() =>
@@ -161,6 +173,7 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
                   >
                     +
                   </button>
+                  {/* Visa radens totalsumma */}
                   <span style={{ marginLeft: "1rem" }}>
                     {item.price && item.quantity
                       ? item.price * item.quantity
@@ -173,6 +186,7 @@ function Cart({ cartItems, setCartItems, setOrderInfo, setShowCart }) {
           ))
         )}
       </ul>
+      {/* Visa totalsumma om det finns varor */}
       {total > 0 && (
         <p style={{ fontWeight: "bold", margin: "8px 0 16px 0" }}>
           Totalt: {total} kr

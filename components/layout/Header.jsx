@@ -6,7 +6,7 @@ function Header({
   onProfileClick,
   onFavoritesClick,
   onCartClick,
-  cartCount,
+  cartCount, //Visar antal saker tillagda i cart
 }) {
   const navigate = useNavigate();
   const location = useLocation(); // Lägg till denna rad
